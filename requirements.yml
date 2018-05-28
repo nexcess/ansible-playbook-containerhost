@@ -1,0 +1,12 @@
+---
+
+- src: "git+https://github.com/nexcess/ansible-role-server.git"
+  name: "nexcess.server"
+- src: "git+https://github.com/nexcess/ansible-role-puppet.git"
+  name: "nexcess.puppet"
+- src: "git+https://github.com/nexcess/ansible-role-repo-nexcess.git"
+  name: "nexcess.repo"
+- src: "git+https://github.com/nexcess/ansible-role-docker.git"
+  name: "nexcess.docker"
+- src: "git+https://github.com/nexcess/role-secure-docker-daemon.git"
+  name: "nexcess.secure_docker"

@@ -1,0 +1,8 @@
+---
+
+nex_env_target: "jarvis"
+eth0: "eth0"
+eth1: "eth1"
+kernelcare_included: false
+server_update: false
+server_selinux_enforcing: false
