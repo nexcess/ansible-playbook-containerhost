@@ -8,5 +8,3 @@
   name: "nexcess.repo"
 - src: "git+https://github.com/nexcess/ansible-role-docker.git"
   name: "nexcess.docker"
-- src: "git+https://github.com/nexcess/role-secure-docker-daemon.git"
-  name: "nexcess.secure_docker"
