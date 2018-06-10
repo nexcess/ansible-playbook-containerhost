@@ -9,9 +9,8 @@
   pre_tasks:
     - include: tasks/containerhost.yml mode="pre"
   roles:
+    - nexcess.repo
     - nexcess.docker
-    - nexcess.secure_docker
-#    - { role: nexcess.puppet, when: "nex_env_target is undefined or nex_env_target != 'vagrant'" }
-#    - nexcess.repo
+    - { role: nexcess.puppet, when: "nex_env_target is undefined or nex_env_target != 'vagrant'" }
   post_tasks:
     - include: tasks/containerhost.yml mode="post"
