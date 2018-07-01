@@ -4,6 +4,11 @@
 nexcess_repo_enabled: false
 server_selinux_enforcing: false
 
+## Allow docker to discretely map more memory; incidentally this also is needed later for ES
+server_extra_sysctl:
+  - key: "vm.max_map_count"
+    value: 393216
+
 ## Firewall - Ultimately handled by APF but set this to start
 firewall_v4_group_rules:
   401 allow docker to dev:
