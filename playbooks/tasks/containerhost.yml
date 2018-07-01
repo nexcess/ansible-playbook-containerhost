@@ -1,15 +1,15 @@
 ---
-- name: template daemon.json file
+- name: Template daemon.json File
   template:
-    src: daemon.json.j2
-    dest: /etc/docker/daemon.json
-    owner: root
-    group: root
+    src: "daemon.json.j2"
+    dest: "/etc/docker/daemon.json"
+    owner: "root"
+    group: "root"
     mode: 0644
   when: mode == 'post'
 
-- name: restart docker daemon
+- name: Restart Docker
   service:
-    name: docker
-    state: restarted
+    name: "docker"
+    state: "restarted"
   when: mode == 'post'
