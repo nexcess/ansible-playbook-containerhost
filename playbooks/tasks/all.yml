@@ -27,3 +27,7 @@
   with_items: "{{ groups }}"
   run_once: true
 
+- name: Collect All Containernets By Group
+  set_fact: {"{{ item }}_containernet_addrs":"{{ groups[item] | map('extract', hostvars, ['containernet_addr']) | list }}"}
+  with_items: "{{ groups }}"
+  run_once: true
