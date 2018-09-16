@@ -13,8 +13,7 @@ server_extra_sysctl:
 ## Firewall
 firewall_v4_group_rules:
   401 allow docker:
-    - "-A INPUT -p tcp -s {{ hostvars[inventory_hostname]['nexcess_firewall::cidr_blocks'].nocworx.nexcess | default(['0.0.0.0'], true) | join(',') }} --dport {{ docker_port }}  -j ACCEPT"
-    - "-A INPUT -p tcp -s {{ hostvars[inventory_hostname]['nexcess_firewall::cidr_blocks'].nocworx.dev | default(['0.0.0.0'], true) | join(',') }} --dport {{ docker_port }} -j ACCEPT"
+    - "-A INPUT -p tcp --dport {{ docker_port }} -j ACCEPT"
 
 ## Prevent puppet from running in a non-blocking fashion
 puppet_agent_fire_and_forget: false
