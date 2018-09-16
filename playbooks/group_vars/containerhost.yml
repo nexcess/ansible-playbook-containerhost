@@ -5,6 +5,11 @@ nexcess_repo_enabled: false
 server_selinux_enforcing: false
 docker_port: 2376
 
+## Allow docker to discretely map more memory; incidentally this also is needed later for ES
+server_extra_sysctl:
+  - key: "vm.max_map_count"
+    value: 393216
+
 ## Firewall
 firewall_v4_group_rules:
   401 allow docker:
