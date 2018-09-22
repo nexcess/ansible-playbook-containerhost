@@ -3,7 +3,6 @@
 ## Base Vars
 nexcess_repo_enabled: false
 server_selinux_enforcing: false
-docker_port: 2376
 
 ## Allow docker to discretely map more memory; incidentally this also is needed later for ES
 server_extra_sysctl:
@@ -13,7 +12,9 @@ server_extra_sysctl:
 ## Firewall
 firewall_v4_group_rules:
   401 allow docker:
-    - "-A INPUT -p tcp --dport {{ docker_port }} -j ACCEPT"
+    - "-A INPUT -p tcp --dport 2376 -j ACCEPT"
+  402 allow docker swarm:
+    - "-A INPUT -p tcp --dport 2377 -j ACCEPT"
 
 ## Prevent puppet from running in a non-blocking fashion
 puppet_agent_fire_and_forget: false
