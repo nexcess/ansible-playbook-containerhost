@@ -1,5 +1,23 @@
 ---
-- name: Template daemon.json File
+
+- name: "Create Override Dir For 'fix'"
+  file:
+    path: "/etc/systemd/system/docker.service.d/"
+    owner: "root"
+    group: "root"
+    mode: 0755
+  when: mode == 'post'
+
+- name: "Fix Docker docker-ce-18.09.0-3.el7 Issues"
+  template:
+    src: "daemon-override.conf.j2"
+    dest: "/etc/systemd/system/docker.service.d/override.conf"
+    owner: "root"
+    group: "root"
+    mode: 0644
+  when: mode == 'post'
+
+- name: "Template daemon.json File"
   template:
     src: "daemon.json.j2"
     dest: "/etc/docker/daemon.json"
@@ -8,8 +26,9 @@
     mode: 0644
   when: mode == 'post'
 
-- name: Restart Docker
+- name: "Restart Docker"
   service:
     name: "docker"
     state: "restarted"
+    daemon_reload: true
   when: mode == 'post'
