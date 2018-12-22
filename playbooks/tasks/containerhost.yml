@@ -6,6 +6,7 @@
     owner: "root"
     group: "root"
     mode: 0755
+    state: "directory"
   when: mode == 'post'
 
 - name: "Fix Docker docker-ce-18.09.0-3.el7 Issues"
