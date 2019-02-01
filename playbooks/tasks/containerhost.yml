@@ -38,3 +38,4 @@
 - name: "Restart Containerhost"
   reboot:
     reboot_timeout: 120
+  when: mode == 'post'
