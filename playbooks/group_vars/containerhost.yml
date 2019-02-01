@@ -17,3 +17,15 @@ firewall_v4_group_rules:
 ## Prevent puppet from running in a non-blocking fashion
 puppet_agent_fire_and_forget: false
 puppet_server: "yy-node62188.us-midwest-1.nexcess.net"
+
+## this looks messy since the role always calls these with the yum module, and their defaults
+##  cause yum to throw python errors. really these values can be anything, with the note that any repo
+##  name used has to actually exist.
+elrepo_disable_plugin:
+  - 'notaplugin'
+elrepo_disablerepo:
+  - 'remi'
+elrepo_enable_plugin:
+  - 'notaplugin'
+elrepo_enablerepo:
+  - 'epel'
