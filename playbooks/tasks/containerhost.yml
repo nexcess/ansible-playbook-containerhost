@@ -38,4 +38,6 @@
 - name: "Restart Containerhost"
   reboot:
     reboot_timeout: 120
+    post_reboot_delay: 20
+    test_command: 'docker status'
   when: mode == 'post'
