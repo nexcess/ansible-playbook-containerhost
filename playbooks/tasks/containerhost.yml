@@ -37,7 +37,5 @@
 ## make sure this is always the last task
 - name: "Restart Containerhost"
   reboot:
-    reboot_timeout: 120
-    post_reboot_delay: 20
-    test_command: 'docker info'
+    test_command: "docker info"
   when: mode == 'post'
