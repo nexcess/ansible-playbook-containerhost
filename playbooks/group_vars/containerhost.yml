@@ -13,6 +13,8 @@ server_extra_sysctl:
 firewall_v4_group_rules:
   401 allow all on eth1:
     - "-A INPUT -i {{ eth1 }} -s 0/0 -d 0/0 -j ACCEPT"
+  402 allow inbound r1soft on eth0:
+    - "-A INPUT -i {{ eth0 }} -p tcp -m tcp --dport 1167 -s 0/0 -d 0/0 -j ACCEPT"
 
 ## Prevent puppet from running in a non-blocking fashion
 puppet_agent_fire_and_forget: false
