@@ -34,9 +34,8 @@
     daemon_reload: true
   when: mode == 'post'
 
-## ignore automatic reboots for now
 ## make sure this is always the last task
-#- name: "Restart Containerhost"
-#  reboot:
-#    test_command: "docker info"
-#  when: mode == 'post'
+- name: "Restart Containerhost"
+  reboot:
+    test_command: "docker info"
+  when: mode == 'post'
