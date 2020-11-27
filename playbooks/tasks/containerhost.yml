@@ -34,6 +34,15 @@
     daemon_reload: true
   when: mode == 'post'
 
+- name: "Login to Docker"
+  docker_login:
+    email: "{{ nex_docker_login_email }}"
+    username: "{{ nex_docker_login_username }}"
+    password: "{{ nex_docker_login_password }}"
+  when:
+    - mode == 'post'
+    - nex_docker_login_enabled
+
 ## make sure this is always the last task
 - name: "Restart Containerhost"
   reboot:
