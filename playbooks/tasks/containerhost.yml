@@ -34,6 +34,13 @@
     daemon_reload: true
   when: mode == 'post'
 
+- name: "Install docker-py Module"
+  pip:
+    name: "docker-py"
+  when:
+    - mode == 'post'
+    - nex_docker_login_enabled
+
 - name: "Login to Docker"
   docker_login:
     email: "{{ nex_docker_login_email }}"
