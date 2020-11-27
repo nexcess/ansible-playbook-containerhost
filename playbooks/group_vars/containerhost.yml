@@ -34,3 +34,8 @@ elrepo_enable_plugin:
   - 'notaplugin'
 elrepo_enablerepo:
   - 'epel'
+
+nex_docker_login_enabled: false
+nex_docker_login_username: ""
+nex_docker_login_password: ""
+nex_docker_login_email: ""
