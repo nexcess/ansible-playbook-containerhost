@@ -2,5 +2,7 @@
   "tls": true,
   "tlscert": "/etc/puppetlabs/puppet/ssl/certs/{{ puppet_uuid }}.pem",
   "tlskey": "/etc/puppetlabs/puppet/ssl/private_keys/{{ puppet_uuid }}.pem",
+  "tlscacert": "/etc/puppetlabs/puppet/ssl/ca.pem",
+  "tlsverify": false,
   "hosts": ["tcp://{{ backnet_addr }}:2376", "unix:///var/run/docker.sock"]
 }
