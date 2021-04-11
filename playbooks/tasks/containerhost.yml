@@ -36,7 +36,7 @@
 
 - name: "Install docker-py Module"
   pip:
-    name: "docker"
+    name: "docker==4.4.4"
   when:
     - mode == 'post'
     - nex_docker_login_enabled
