@@ -1,5 +1,15 @@
 ---
 
+- name: "Install python 3"
+  package:
+    name: python3
+    state: present
+  when: mode == 'post'
+
+- set_fact:
+    ansible_python_interpreter: "/bin/python3"
+  when: mode == 'post'
+
 - name: "Create Override Dir For 'fix'"
   file:
     path: "/etc/systemd/system/docker.service.d/"
@@ -34,9 +44,16 @@
     daemon_reload: true
   when: mode == 'post'
 
+- name: "Install six module"
+  pip:
+    name: "six"
+  when:
+    - mode == 'post'
+    - nex_docker_login_enabled
+
 - name: "Install docker-py Module"
   pip:
-    name: "docker==4.4.4"
+    name: "docker"
   when:
     - mode == 'post'
     - nex_docker_login_enabled
