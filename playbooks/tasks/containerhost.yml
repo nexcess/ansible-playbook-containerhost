@@ -34,6 +34,13 @@
     daemon_reload: true
   when: mode == 'post'
 
+- name: "Install websocket-client 0.59.0"
+  pip:
+    name: "websocket-client==0.59.0"
+  when:
+    - mode == 'post'
+    - nex_docker_login_enabled
+
 - name: "Install docker-py Module"
   pip:
     name: "docker==4.4.4"
