@@ -41,6 +41,13 @@
     - mode == 'post'
     - nex_docker_login_enabled
 
+- name: "Install certifi Module"
+  pip:
+    name: "certifi==2021.10.8"
+  when:
+    - mode == 'post'
+    - nex_docker_login_enabled
+
 - name: "Install docker-py Module"
   pip:
     name: "docker==4.4.4"
