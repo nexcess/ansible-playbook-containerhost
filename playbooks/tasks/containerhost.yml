@@ -43,7 +43,7 @@
 
 - name: "Install requests Module"
   pip:
-    name: "requests==2.28"
+    name: "requests==2.27.1"
   when:
     - mode == 'post'
     - nex_docker_login_enabled
