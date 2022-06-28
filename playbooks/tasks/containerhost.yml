@@ -41,16 +41,16 @@
     - mode == 'post'
     - nex_docker_login_enabled
 
-- name: "Install requests Module"
+- name: "Install certifi Module"
   pip:
-    name: "requests==2.27.1"
+    name: "certifi==2021.10.8"
   when:
     - mode == 'post'
     - nex_docker_login_enabled
 
-- name: "Install certifi Module"
+- name: "Install requests Module"
   pip:
-    name: "certifi==2021.10.8"
+    name: "requests==2.27.1"
   when:
     - mode == 'post'
     - nex_docker_login_enabled
