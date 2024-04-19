@@ -34,6 +34,12 @@
     daemon_reload: true
   when: mode == 'post'
 
+- name: "Install python-pip"
+  yum:
+    name: python-pip
+    state: latest
+  when: mode =='post'
+
 - name: "Install websocket-client 0.59.0"
   pip:
     name: "websocket-client==0.59.0"
