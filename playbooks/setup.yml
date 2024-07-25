@@ -14,10 +14,10 @@
   become: true
   tasks:
     - copy:
-      dest: "/etc/pip.conf"
-      content: |
-        [global]
-        cert = /etc/ssl/certs/ca-bundle.crt
+        dest: "/etc/pip.conf"
+        content: |
+          [global]
+          cert = /etc/ssl/certs/ca-bundle.crt
       when:
         - ansible_os_family == 'RedHat'
         - ansible_distribution_major_version == '7'
